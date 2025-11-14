@@ -62,6 +62,12 @@ namespace be {
 
 //// More EditCommand options
 struct EditCommandExt {
+
+    static constexpr auto BigLeft  = static_cast<EditCommand>(0x500);
+    static constexpr auto BigRight = static_cast<EditCommand>(0x501);
+    static constexpr auto BigUp    = static_cast<EditCommand>(0x502);
+    static constexpr auto BigDown  = static_cast<EditCommand>(0x503);
+
     static constexpr auto QuarterLeft  = static_cast<EditCommand>(0x400);
     static constexpr auto QuarterRight = static_cast<EditCommand>(0x401);
     static constexpr auto QuarterUp    = static_cast<EditCommand>(0x402);
@@ -76,6 +82,7 @@ struct EditCommandExt {
     static constexpr auto UnitRight    = static_cast<EditCommand>(0x409);
     static constexpr auto UnitUp       = static_cast<EditCommand>(0x40a);
     static constexpr auto UnitDown     = static_cast<EditCommand>(0x40b);
+
 };
 
 //// Editor exit events - used for standardizing detecting when the editor is closed
@@ -101,3 +108,4 @@ public:
     ListenerResult handle(std::function<Callback> fn, UIShowEvent* ev);
 };
 using OnUIHide = EventListener<UIShowFilter>;
+
