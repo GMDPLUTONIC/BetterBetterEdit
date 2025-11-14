@@ -199,6 +199,11 @@ class $modify(EditorUI) {
     CCPoint moveForCommand(EditCommand command) {
         auto gridSize = EditorUI::get()->m_gridSize;
         switch (command) {
+            case EditCommandExt::BigLeft:   return ccp(-10.f, 0) * gridSize;
+            case EditCommandExt::BigRight:  return ccp(10.f, 0) * gridSize;
+            case EditCommandExt::BigUp:     return ccp(0, 10.f) * gridSize;
+            case EditCommandExt::BigDown:   return ccp(0, -10.f) * gridSize;
+            
             case EditCommandExt::QuarterLeft:   return ccp(-1 / 4.f, 0) * gridSize;
             case EditCommandExt::QuarterRight:  return ccp( 1 / 4.f, 0) * gridSize;
             case EditCommandExt::QuarterUp:     return ccp(0,  1 / 4.f) * gridSize;
@@ -433,3 +438,4 @@ std::vector<int> be::getTriggerTargetedGroups(EffectGameObject* trigger) {
     }
     return results;
 }
+
